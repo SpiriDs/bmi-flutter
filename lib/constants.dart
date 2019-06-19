@@ -13,8 +13,6 @@ const kLabelTextStyle = TextStyle(
   color: kThemeTextColor,
 );
 
-const a = 12;
-
 const kNumberTextStyle = TextStyle(
   fontSize: 50.0,
   fontWeight: FontWeight.w900,
