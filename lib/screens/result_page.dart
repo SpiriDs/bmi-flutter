@@ -16,7 +16,10 @@ class ResultPage extends StatelessWidget {
         children: <Widget>[
           Expanded(
             flex: 1,
-            child: Text('RESULT'),
+            child: Text(
+              'RESULT',
+              style: kResultTitle,
+            ),
           ),
           Expanded(
             flex: 5,

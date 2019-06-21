@@ -23,6 +23,11 @@ const kBottomButtonText = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+const kResultTitle = TextStyle(
+  fontSize: 38,
+  fontWeight: FontWeight.bold,
+);
+
 const kBmiResult = TextStyle(
     fontSize: 22, fontWeight: FontWeight.bold, color: Color(0xFF4BCC8E));
 
