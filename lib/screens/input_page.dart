@@ -5,6 +5,8 @@ import 'package:bmi_calculator/components/round_icon_button.dart';
 import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:bmi_calculator/calculator_brain.dart';
+import 'package:bmi_calculator/screens/result_page.dart';
 
 /*Gender cardType = Gender.male;*/
 // this is the better Way to do it, because the cards are at the start of the app both inactive
@@ -53,8 +55,11 @@ class _InputPageState extends State<InputPage> {
         title: Text('BMI CALCULATOR'),
       ),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        //crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
+          SizedBox(
+            height: 15.0,
+          ),
           Expanded(
             flex: 1,
             child: Row(
@@ -240,8 +245,22 @@ class _InputPageState extends State<InputPage> {
           ),
           BottomButton(
             text: 'CALCULATE YOUR BMI',
-            route: '/resultPage',
-          ),
+            onTab: () {
+              CalculatorBrain calc =
+                  CalculatorBrain(height: height, weight: weight);
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultPage(
+                        bmiResult: calc.calculateBMI(),
+                        interpretation: calc.getInterpretation(),
+                        resultText: calc.getResult(),
+                      ),
+                ),
+              );
+            },
+          )
         ],
       ),
     );

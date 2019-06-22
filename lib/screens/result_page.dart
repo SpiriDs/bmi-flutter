@@ -4,6 +4,15 @@ import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
 
 class ResultPage extends StatelessWidget {
+  ResultPage(
+      {@required this.interpretation,
+      @required this.resultText,
+      @required this.bmiResult});
+
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,29 +38,34 @@ class ResultPage extends StatelessWidget {
             flex: 5,
             child: ReusableCard(
               colour: kInactiveCardColor,
-              cardChild: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Text(
-                    'Normal',
-                    style: kBmiResult,
-                  ),
-                  Text(
-                    '86.1',
-                    style: kBmiNumber,
-                  ),
-                  Text(
-                    'You have a normal body weight. Good job!',
-                    style: kResultText,
-                    textAlign: TextAlign.center,
-                  ),
-                ],
+              cardChild: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Text(
+                      resultText.toUpperCase(),
+                      style: kBmiResult,
+                    ),
+                    Text(
+                      bmiResult,
+                      style: kBmiNumber,
+                    ),
+                    Text(
+                      interpretation,
+                      style: kResultText,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
           BottomButton(
             text: 'RE-CALCULATE YOUR BMI',
-            route: '/',
+            onTab: () {
+              Navigator.pushNamed(context, '/');
+            },
           ),
         ],
       ),
