@@ -12,13 +12,17 @@ class ResultPage extends StatelessWidget {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        //crossAxisAlignment: CrossAxisAlignment.stretch,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Expanded(
             flex: 1,
-            child: Text(
-              'RESULT',
-              style: kResultTitle,
+            child: Container(
+              padding: EdgeInsets.all(15.0),
+              alignment: Alignment.bottomLeft,
+              child: Text(
+                'RESULT',
+                style: kResultTitle,
+              ),
             ),
           ),
           Expanded(
