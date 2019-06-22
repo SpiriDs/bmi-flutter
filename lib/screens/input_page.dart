@@ -1,10 +1,10 @@
 import 'package:bmi_calculator/components//reusable_card.dart';
+import 'package:bmi_calculator/components/bottom_button.dart';
 import 'package:bmi_calculator/components/icon_content.dart';
 import 'package:bmi_calculator/components/round_icon_button.dart';
+import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import 'constants.dart';
 
 /*Gender cardType = Gender.male;*/
 // this is the better Way to do it, because the cards are at the start of the app both inactive
@@ -238,12 +238,10 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(top: 10.0),
-            color: kThemePinkColor,
-            width: double.infinity,
-            height: kBottomContainerHeight,
-          )
+          BottomButton(
+            text: 'CALCULATE YOUR BMI',
+            route: '/resultPage',
+          ),
         ],
       ),
     );
